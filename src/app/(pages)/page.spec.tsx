@@ -7,6 +7,7 @@ describe('Page', () => {
 
     const heading = screen.getByRole('heading', { level: 1 })
 
+    expect(screen.getByText('Hello FinTechX!')).toBeInTheDocument()
     expect(heading).toBeInTheDocument()
   })
 })
