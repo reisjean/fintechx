@@ -64,7 +64,7 @@ export function CarouselHome() {
             <div className="mb-[-1rem] w-full">
               <Image
                 src="/robot-smile.webp"
-                alt="Robot"
+                alt="Robot Smiling"
                 sizes="100vw"
                 style={{
                   width: '100%',
