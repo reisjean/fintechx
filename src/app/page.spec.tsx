@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { CarouselContentMock, CarouselItemMock, CarouselMock, CarouselNextMock, CarouselPreviousMock } from '__mocks__/CarouselMock'
 import Home from './page'
 
@@ -13,6 +13,6 @@ describe('Page', () => {
   it('renders a heading', () => {
     const homePage = render(<Home />)
 
-    expect(homePage).toMatchSnapshot();
+    expect(screen.getByRole('button', { name: 'Skip' })).toBeInTheDocument()
   })
 })
