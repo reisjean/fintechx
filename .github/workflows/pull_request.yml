@@ -90,7 +90,7 @@ jobs:
           path: ./report.json
 
   coverage_report:
-      needs: test
+      needs: [run-tests]
       permissions:
           checks: write
           pull-requests: write
