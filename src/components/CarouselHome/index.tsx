@@ -22,7 +22,6 @@ export function CarouselHome() {
 
   useEffect(() => {
     if (!api) return
-
     setCount(api.scrollSnapList().length)
     setActiveItem(api.selectedScrollSnap() + 1)
 
@@ -65,7 +64,7 @@ export function CarouselHome() {
             <div className="mt-[1.5rem] w-full absolute -z-10">
               <Image
                 src="/slide-2.webp"
-                alt="Robot"
+                alt="Space"
                 sizes="100vw"
                 style={{
                   width: '100%',

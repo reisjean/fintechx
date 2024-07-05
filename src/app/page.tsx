@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 
-import { poppins } from "../fonts";
-import { CarouselHome } from "./components/CarouselHome";
+import { CarouselHome } from "@/components/CarouselHome";
+import { poppins } from "./fonts";
 
 export default function Home() {
   return (
