@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 
 import { CarouselHome } from "@/components/CarouselHome";
+import { Chat } from "@/components/Chat";
 import { poppins } from "./fonts";
 
 export default function Home() {
@@ -13,6 +14,8 @@ export default function Home() {
       </div>
 
       <CarouselHome />
+
+      <Chat />
 
     </main>
   );

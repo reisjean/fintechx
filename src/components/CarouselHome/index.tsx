@@ -93,17 +93,19 @@ export function CarouselHome() {
       </Carousel>
 
       <div className="flex gap-2 items-center justify-between absolute top-0 left-1/2 -translate-x-1/2 mt-[470px]">
-        {Array.from({ length: count }).map((_, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: index === activeItem - 1 ? 1 : 0.3 }}
-            transition={{ duration: 0.3 }}
-            className={index !== activeItem - 1 ? 'w-[9px] h-[9px] bg-dark dark:bg-white rounded-full' : ''}
-          >
-            {index === activeItem - 1 && <PiRadioButtonFill className="text-dark dark:text-white" />}
-          </motion.div>
-        ))}
+        {Array.from({ length: count }).map((_, index) => {
+          return (
+            <motion.div
+              key={Math.round(index)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: index === activeItem - 1 ? 1 : 0.3 }}
+              transition={{ duration: 0.3 }}
+              className={index !== activeItem - 1 ? 'w-[9px] h-[9px] bg-dark dark:bg-white rounded-full' : ''}
+            >
+              {index === activeItem - 1 && <PiRadioButtonFill className="text-dark dark:text-white" />}
+            </motion.div>
+          )
+        })}
       </div>
     </div>
   )
