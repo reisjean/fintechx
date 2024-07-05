@@ -47,7 +47,7 @@ jobs:
         with:
           name: build
           if-no-files-found: error
-          path: dist
+          path: .next
 
   run-e2e-tests:
     runs-on: ubuntu-22.04
