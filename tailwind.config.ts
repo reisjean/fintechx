@@ -1,7 +1,6 @@
 import type { Config } from "tailwindcss"
 
 const config = {
-  darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -19,6 +18,20 @@ const config = {
     },
     extend: {
       colors: {
+        grey: {
+          "2": "#D7D7D7",
+        },
+        light: "#F7F8FA",
+        dark: "#141718",
+        neutrals: {
+          "2": "#23262F",
+          "5": "#B1B5C3",
+          "6": "#E6E8EC",
+          "8": "#FCFCFD",
+        },
+        paragraph: "#8E9295",
+        boxBgDark: "#232627",
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -54,6 +67,7 @@ const config = {
         },
       },
       borderRadius: {
+        elg: "calc(var(--radius) + 2px)",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",

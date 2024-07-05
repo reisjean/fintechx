@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { urbanist } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body>{children}</body>
+      <body className={`${urbanist.className} h-screen bg-light dark:bg-dark`}>{children}</body>
     </html>
   );
 }
