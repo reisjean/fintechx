@@ -12,8 +12,18 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v4
-    
+        with:
+          fetch-depth: 0
+
+      - name: Cache dependencies
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-${{ env.MODULE_CACHE_NAME }}-${{ hashFiles('**/package-lock.json') }}
+
       - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
 
       - name: Run lint
@@ -24,13 +34,6 @@ jobs:
         with:
           runTests: false
           build: npm run build
-
-      - name: Save build folder
-        uses: actions/upload-artifact@v4
-        with:
-          name: build
-          if-no-files-found: error
-          path: dist
 
   test:
     runs-on: ubuntu-latest
