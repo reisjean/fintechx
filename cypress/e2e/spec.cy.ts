@@ -19,4 +19,9 @@ describe("testing home", () => {
       .contains(/Harness the Innovation of Next-Gen AI/)
       .should("be.visible")
   })
+
+  it("remove it!", () => {
+    cy.contains("button", "Next slide").click()
+    cy.contains("button", "Next slide").click()
+  })
 })
