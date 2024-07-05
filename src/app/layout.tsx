@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${urbanist.className} h-screen bg-light dark:bg-dark`}>{children}</body>
+      <body className={`${urbanist.className}`}>{children}</body>
     </html>
   );
 }

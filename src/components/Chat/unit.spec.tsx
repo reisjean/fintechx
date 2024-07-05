@@ -5,8 +5,8 @@ describe('Chat unit tests', () => {
   it('should render without crashing', () => {
     render(<Chat />);
 
-    expect(screen.getByRole('heading', { name: 'BrainBox' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'FinTechX' })).toBeInTheDocument();
 
-    expect(screen.getAllByRole('paragraph')).toHaveLength(7);
+    expect(screen.getAllByRole('paragraph')).toHaveLength(4);
   });
 })

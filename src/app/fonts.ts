@@ -9,5 +9,5 @@ export const poppins = Poppins({
 export const urbanist = Urbanist({
   subsets: ["latin"],
   style: "normal",
-  weight: ["400", "900"],
+  weight: ["400", "600", "900"],
 })
