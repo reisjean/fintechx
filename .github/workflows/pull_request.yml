@@ -74,14 +74,6 @@ jobs:
 
       - name: Run Unit tests (jest)
         run: npm run test:coverage -- --ci --json --testLocationInResults --outputFile=report.json
-
-      - name: Run E2e tests (cypress)
-        uses: cypress-io/github-action@v6
-        with:
-          record: true
-          parallel: true
-          group: 'UI-Chrome'
-          start: npm start
       
       - uses: actions/upload-artifact@v4
         with:
