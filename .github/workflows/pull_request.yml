@@ -4,41 +4,63 @@ on: pull_request
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      NODE_OPTIONS: --max-old-space-size=8192
     steps:
-      - uses: actions/checkout@v4
-    
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
+      - name: Checkout
+        uses: actions/checkout@v4
+    
       - name: Install dependencies
         run: npm install
 
       - name: Run lint
         run: npm run lint
 
-      - name: Run nextjs build
-        run: npm run build
+      - name: Run nextjs build and Cypress install
+        uses: cypress-io/github-action@v6
+        with:
+          runTests: false
+          build: npm run build
+
+      - name: Save build folder
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          if-no-files-found: error
+          path: dist
 
   test:
     runs-on: ubuntu-latest
-    env:
-      NODE_OPTIONS: --max-old-space-size=8192
+    needs: build
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3, 4, 5]
+
     steps:
       - uses: actions/checkout@v4
-      
       - uses: actions/setup-node@v4
         with:
           node-version: 18
+
+      - name: Download the build folder
+        uses: actions/download-artifact@v4
+        with:
+          name: build
       
-      - name: Install dependencies
-        run: npm i
-      
-      - name: Run tests
+      - name: Run Unit tests (jest)
         run: npm run test:coverage -- --ci --json --testLocationInResults --outputFile=report.json
+
+      - name: Run E2e tests (cypress)
+        uses: cypress-io/github-action@v6
+        with:
+          record: true
+          parallel: true
+          group: 'UI-Chrome'
+          start: npm start
       
       - uses: actions/upload-artifact@v4
         with:

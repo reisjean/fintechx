@@ -201,12 +201,12 @@ const CarouselPrevious = React.forwardRef<
   return (
     <Button
       ref={ref}
-      className="bg-transparent border-none"
+      className="!bg-transparent !border-none"
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <FaArrowLeftLong />
+      <FaArrowLeftLong className="text-neutrals-2 dark:text-white" />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -222,12 +222,12 @@ const CarouselNext = React.forwardRef<
   return (
     <Button
       ref={ref}
-      className="bg-transparent border-none"
+      className="!bg-transparent !border-none"
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
     >
-      <FaArrowRightLong />
+      <FaArrowRightLong className="text-neutrals-2 dark:text-white" />
       <span className="sr-only">Next slide</span>
     </Button>
   )

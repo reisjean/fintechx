@@ -61,10 +61,10 @@ export function CarouselHome() {
             </div>
           </CarouselItem>
           <CarouselItem className="relative">
-            <div className="mt-[1.5rem] w-full absolute -z-10">
+            <div className="mb-[-1rem] w-full">
               <Image
-                src="/slide-2.webp"
-                alt="Space"
+                src="/robot-smile.webp"
+                alt="Robot"
                 sizes="100vw"
                 style={{
                   width: '100%',
@@ -99,9 +99,9 @@ export function CarouselHome() {
             initial={{ opacity: 0 }}
             animate={{ opacity: index === activeItem - 1 ? 1 : 0.3 }}
             transition={{ duration: 0.3 }}
-            className={index !== activeItem - 1 ? 'w-[9px] h-[9px] bg-white rounded-full' : ''}
+            className={index !== activeItem - 1 ? 'w-[9px] h-[9px] bg-dark dark:bg-white rounded-full' : ''}
           >
-            {index === activeItem - 1 && <PiRadioButtonFill className="text-white" />}
+            {index === activeItem - 1 && <PiRadioButtonFill className="text-dark dark:text-white" />}
           </motion.div>
         ))}
       </div>
