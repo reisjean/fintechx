@@ -34,6 +34,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Install dependencies
+        if: steps.cache-nextjob.outputs.cache-hit != 'true'
+        run: npm install
+
       - name: Cache dependencies
         id: cache-nextjob
         uses: actions/cache@v4
@@ -41,14 +45,19 @@ jobs:
           path: ./node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
-      - name: Download the build folder
-        uses: actions/download-artifact@v4
+      - name: Cypress install
+        uses: cypress-io/github-action@v6
+        with:
+          # Disable running of tests within install job
+          runTests: false
+          build: npm run build
+
+      - name: Save build folder
+        uses: actions/upload-artifact@v4
         with:
           name: build
-
-      - name: Install dependencies
-        if: steps.cache-nextjob.outputs.cache-hit != 'true'
-        run: npm install
+          if-no-files-found: error
+          path: dist
 
       - name: Run E2e tests (cypress)
         uses: cypress-io/github-action@v6
