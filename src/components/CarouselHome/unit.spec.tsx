@@ -15,7 +15,7 @@ describe('CarouselHome', () => {
     render(<CarouselHome />)
 
     expect(screen.getByAltText('Robot')).toBeInTheDocument()
-    expect(screen.getByAltText('Space')).toBeInTheDocument()
+    expect(screen.getByAltText('Robot Smiling')).toBeInTheDocument()
 
     expect(screen.getByRole('heading', {
       name: /unlock the power of future ai/i
