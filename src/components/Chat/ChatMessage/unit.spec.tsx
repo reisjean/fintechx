@@ -15,7 +15,8 @@ describe('ChatMessage Component', () => {
     render(<ChatMessage type="user" text={message} />);
 
     const chatMessageElement = screen.getByTestId('chat-message-item');
-    expect(chatMessageElement).toHaveClass('bg-boxBgDark');
+    expect(chatMessageElement).toHaveClass('dark:bg-boxBgDark');
+    expect(chatMessageElement).toHaveClass('bg-grey-4');
   });
 
   it('should apply the correct class to assistant', () => {
