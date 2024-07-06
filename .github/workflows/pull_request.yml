@@ -81,6 +81,8 @@ jobs:
         with:
           browser: chrome
           start: npm start
+        env:
+          OPENAI_API_KEY: ${{secrets.OPENAI_API_KEY}}
 
   run-unit-tests:
     runs-on: ubuntu-latest

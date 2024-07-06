@@ -18,12 +18,17 @@ const config = {
     },
     extend: {
       colors: {
-        grey: {
-          "2": "#D7D7D7",
-        },
         light: "#F7F8FA",
         dark: "#141718",
+        grey: {
+          "1": "#CBCCCD",
+          "2": "#D7D7D7",
+          "3": "#757474",
+          "4": "#F7F7F8",
+          "6": "#A0A0A5",
+        },
         neutrals: {
+          "1": "#E1E1E1",
           "2": "#23262F",
           "5": "#B1B5C3",
           "6": "#E6E8EC",

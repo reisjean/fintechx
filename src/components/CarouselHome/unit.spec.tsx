@@ -29,7 +29,7 @@ describe('CarouselHome', () => {
 
     await waitFor(() => {
       const dots = screen.getAllByRole('button', { hidden: true })
-      expect(dots.length).toBe(2)
+      expect(dots.length).toBe(3)
     })
   })
 })

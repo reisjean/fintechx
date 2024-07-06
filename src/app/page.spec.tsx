@@ -10,9 +10,8 @@ jest.mock("../components/ui/carousel", () => ({
   CarouselPrevious: CarouselPreviousMock,
 }))
 describe('Page', () => {
-  it('renders a heading', () => {
-    const homePage = render(<Home />)
-
+  it('should render Home Page with Carousel', () => {
+    render(<Home />)
     expect(screen.getByRole('button', { name: 'Skip' })).toBeInTheDocument()
   })
 })
