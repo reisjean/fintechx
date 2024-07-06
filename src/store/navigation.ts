@@ -1,14 +1,14 @@
 import { create } from "zustand"
 import { createJSONStorage, persist } from "zustand/middleware"
 
-type Current = "carousel" | "chat"
+export type CurrentView = "carousel" | "chat" | "preferences" | "profile"
 
 export type NavigationStoreProps = {
-  current: Current
+  current: CurrentView
 }
 
 export interface NavigationStoreMethods {
-  update: (current: Current) => void
+  update: (current: CurrentView) => void
   reset: () => void
 }
 
