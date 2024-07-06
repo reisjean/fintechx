@@ -89,6 +89,7 @@ export const Chat = () => {
               type="submit"
               className="bg-none text-white rounded-xl h-12 w-14"
               size="icon"
+              aria-label="Enviar mensagem"
               onClick={(e) => {
                 setIsChatting(true)
               }}

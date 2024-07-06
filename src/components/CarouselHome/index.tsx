@@ -34,7 +34,7 @@ export function CarouselHome() {
   }, [api])
 
   return (
-    <section className="text-center flex flex-col items-center bg-light dark:bg-dark relative">
+    <section className="text-center flex flex-col items-center bg-light dark:bg-dark relative h-full">
       <div className="text-right w-full px-6 pt-2 mb-[-1rem] z-10">
         <Button
           onClick={() => update("chat")}
@@ -44,7 +44,7 @@ export function CarouselHome() {
           Skip
         </Button>
       </div>
-      <div className="relative w-full">
+      <div className="relative w-full bg-light dark:bg-dark">
         <Carousel setApi={setApi}>
           <CarouselContent>
             <CarouselItem>
