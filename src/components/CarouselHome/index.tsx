@@ -34,7 +34,7 @@ export function CarouselHome() {
   }, [api])
 
   return (
-    <section className="text-center flex flex-col items-center bg-light dark:bg-dark relative h-full">
+    <section className="text-center flex flex-col items-center bg-light dark:bg-dark relative">
       <div className="text-right w-full px-6 pt-2 mb-[-1rem] z-10">
         <Button
           onClick={() => update("chat")}
