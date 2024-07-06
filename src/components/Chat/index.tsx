@@ -2,10 +2,10 @@
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useChat } from 'ai/react';
-import { useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { IoSend } from "react-icons/io5";
 import { Button } from "../ui/button";
-import { ChatMessage } from "./ChatMessage";
+import { ChatMessage, ChatMessageTypes } from "./ChatMessage";
 import { Header } from "./Header";
 import { InteractiveButton } from "./InteractiveButton";
 
@@ -32,16 +32,32 @@ export const Chat = () => {
   const { messages, input, handleInputChange, handleSubmit, setInput } = useChat();
   const [isChatting, setIsChatting] = useState(false)
   const formRef = useRef<HTMLFormElement>(null)
+  const lastMessageRef = useRef<HTMLDivElement>(null)
 
   const handlePreMessageButtonClick = (message: string) => {
     setIsChatting(true)
     setInput(message)
     setTimeout(() => {
-      if (formRef.current) {
-        formRef.current.requestSubmit()
-      }
+      if (formRef.current) formRef.current.requestSubmit()
     }, 0)
   }
+
+  const scrollToEnd = () => {
+    if (lastMessageRef.current) {
+      lastMessageRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: "end"
+      });
+    }
+  }
+
+  useLayoutEffect(() => {
+    scrollToEnd()
+
+    setTimeout(() => {
+      if (lastMessageRef.current) scrollToEnd()
+    }, 1000)
+  }, [messages.length])
 
   return (
     <section className="text-center grid items-center">
@@ -49,9 +65,14 @@ export const Chat = () => {
         <Header />
 
         {isChatting ? (
-          <ScrollArea className="w-100">
-            {messages.map(m => (
-              <ChatMessage key={m.id} type={m.role as 'assistant' | 'user'} text={m.content} />
+          <ScrollArea>
+            {messages.map((message, index) => (
+              <div key={message.id} ref={index === messages.length - 1 ? lastMessageRef : null}>
+                <ChatMessage
+                  type={message.role as ChatMessageTypes}
+                  text={message.content}
+                />
+              </div>
             ))}
           </ScrollArea>
         ) : (
@@ -80,19 +101,17 @@ export const Chat = () => {
           >
             <input
               placeholder="Envie sua pergunta"
-              className="bg-transparent border-none focus:outline-none pl-4 text-md w-full text-grey-2"
+              className="bg-transparent border-none focus:outline-none pl-4 text-md w-full text-grey-3 dark:text-grey-2"
               value={input}
               onChange={handleInputChange}
             />
             <Button
               variant="ghost"
               type="submit"
-              className="bg-none text-white rounded-xl h-12 w-14"
+              className="bg-none text-white rounded-xl h-12 w-14 hover:bg-transparent"
               size="icon"
               aria-label="Enviar mensagem"
-              onClick={(e) => {
-                setIsChatting(true)
-              }}
+              onClick={() => { setIsChatting(true) }}
             >
               <IoSend className="text-slate-300 h-6 w-8" />
             </Button>

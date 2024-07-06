@@ -39,7 +39,7 @@ export function CarouselHome() {
         <Button
           onClick={() => update("chat")}
           variant="link"
-          className={`text-grey-2 text-lg ${poppins.className} font-semibold`}
+          className={`text-grey-2 text-lg ${poppins.className} font-semibold !no-underline hover:text-grey-6 dark:hover:text-white`}
         >
           Skip
         </Button>

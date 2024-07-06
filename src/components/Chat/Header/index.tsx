@@ -18,8 +18,10 @@ export const Header = () => {
         <FaChevronLeft />
       </Button>
       <h3 className="text-lg text-dark dark:text-white">Assuntos Gerais</h3>
+      {/* <SideMenu /> */}
+
       <Button variant="ghost" className="bg-none rounded-xl h-12 text-grey-1 dark:text-grey-3">
-        <BsThreeDots className="h-10 w-10" />
+        <BsThreeDots className="h-8 w-5" />
       </Button>
     </header>
   )
