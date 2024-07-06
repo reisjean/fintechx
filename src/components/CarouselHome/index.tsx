@@ -11,6 +11,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useNavigationStore } from "@/store/navigation";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { PiRadioButtonFill } from "react-icons/pi";
@@ -20,6 +21,7 @@ export function CarouselHome() {
   const [api, setApi] = useState<CarouselApi>()
   const [activeItem, setActiveItem] = useState(0)
   const [count, setCount] = useState(0)
+  const { update } = useNavigationStore();
 
   useEffect(() => {
     if (!api) return
@@ -32,9 +34,13 @@ export function CarouselHome() {
   }, [api])
 
   return (
-    <main className="text-center flex flex-col items-center h-screen bg-light dark:bg-dark">
-      <div className="text-right w-full px-6 pt-2 mb-[-1rem]">
-        <Button variant="link" className={`text-grey-2 text-lg ${poppins.className} font-semibold`}>
+    <section className="text-center flex flex-col items-center bg-light dark:bg-dark relative h-full">
+      <div className="text-right w-full px-6 pt-2 mb-[-1rem] z-10">
+        <Button
+          onClick={() => update("chat")}
+          variant="link"
+          className={`text-grey-2 text-lg ${poppins.className} font-semibold`}
+        >
           Skip
         </Button>
       </div>
@@ -91,7 +97,7 @@ export function CarouselHome() {
           </CarouselContent>
 
           <div className="w-full flex items-center justify-center my-6">
-            <div className="w-[130px] bg-neutrals-8 dark:bg-boxBgDark rounded-elg flex justify-between py-2 px-2 text-neutrals-2 dark:text-white items-center">
+            <div className="w-[130px] bg-neutrals-8 dark:bg-boxBgDark rounded-elg flex justify-between py-2 px-2 text-neutrals-2 dark:text-white items-center shadow-2xl">
               <CarouselPrevious />
               <span className="scale-y-150 origin-center">|</span>
               <CarouselNext />
@@ -99,7 +105,7 @@ export function CarouselHome() {
           </div>
         </Carousel>
 
-        <div className="flex gap-2 items-center justify-between absolute top-0 left-1/2 -translate-x-1/2 mt-[470px]">
+        <div className="flex gap-2 items-center justify-between absolute bottom-0 left-1/2 -translate-x-1/2 mb-[275px]">
           {Array.from({ length: count }).map((_, index) => {
             return (
               <motion.div
@@ -115,6 +121,6 @@ export function CarouselHome() {
           })}
         </div>
       </div>
-    </main>
+    </section>
   )
 }

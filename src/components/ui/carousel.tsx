@@ -201,7 +201,7 @@ const CarouselPrevious = React.forwardRef<
   return (
     <Button
       ref={ref}
-      className="!bg-transparent !border-none"
+      className="!bg-transparent !border-none !shadow-none"
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
@@ -222,7 +222,7 @@ const CarouselNext = React.forwardRef<
   return (
     <Button
       ref={ref}
-      className="!bg-transparent !border-none"
+      className="!bg-transparent !border-none !shadow-none"
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}

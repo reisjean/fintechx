@@ -3,11 +3,10 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useChat } from 'ai/react';
 import { useRef, useState } from "react";
-import { BsThreeDots } from "react-icons/bs";
-import { FaChevronLeft } from "react-icons/fa";
 import { IoSend } from "react-icons/io5";
 import { Button } from "../ui/button";
 import { ChatMessage } from "./ChatMessage";
+import { Header } from "./Header";
 import { InteractiveButton } from "./InteractiveButton";
 
 const preMessages = [
@@ -45,17 +44,9 @@ export const Chat = () => {
   }
 
   return (
-    <main className="text-center grid items-center h-screen">
-      <div className={`w-full h-screen bg-white dark:bg-dark grid ${isChatting ? 'grid-rows-[120px_1fr_min-content]' : 'grid-rows-[120px_min-content_1fr_min-content]'}`}>
-        <header className="grid grid-cols-[50px_auto_54px] w-full items-center px-8">
-          <Button variant="ghost" className="bg-grey-4 dark:bg-boxBgDark text-grey-6 rounded-xl h-12">
-            <FaChevronLeft />
-          </Button>
-          <h3 className="text-lg text-dark dark:text-white">Assuntos Gerais</h3>
-          <Button variant="ghost" className="bg-none rounded-xl h-12 text-grey-1 dark:text-grey-3">
-            <BsThreeDots className="h-10 w-10" />
-          </Button>
-        </header>
+    <section className="text-center grid items-center">
+      <div className={`w-full h-dvh bg-white dark:bg-dark grid ${isChatting ? 'grid-rows-[120px_minmax(0,1fr)_min-content]' : 'grid-rows-[120px_min-content_minmax(0,1fr)_min-content]'}`}>
+        <Header />
 
         {isChatting ? (
           <ScrollArea className="w-100">
@@ -67,27 +58,25 @@ export const Chat = () => {
           <>
             <h1 className="text-4xl font-semibold text-grey-3 p-12 pt-8">FinTechX</h1>
 
-            <div>
-              <ScrollArea className="w-100">
-                <div className="flex flex-col gap-4 box-border px-8">
-                  {preMessages.map((button) => (
-                    <InteractiveButton
-                      key={button.id}
-                      text={button.text}
-                      onClick={() => handlePreMessageButtonClick(button.text)}
-                    />
-                  ))}
-                </div>
-              </ScrollArea>
-            </div>
+            <ScrollArea className="w-100">
+              <div className="flex flex-col gap-4 box-border px-8">
+                {preMessages.map((button) => (
+                  <InteractiveButton
+                    key={button.id}
+                    text={button.text}
+                    onClick={() => handlePreMessageButtonClick(button.text)}
+                  />
+                ))}
+              </div>
+            </ScrollArea>
           </>
         )}
 
-        <div className="p-8 pb-6 pt-2 w-full">
+        <div className="px-8 py-6 pt-2 w-full">
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            className="grid grid-flow-col grid-cols-[1fr_min-content] items-center border-neutral-600 border-[1px] rounded-lg bg-boxBgDark"
+            className="mt-2 grid grid-flow-col grid-cols-[1fr_min-content] items-center border-neutrals-1 dark:border-neutral-600 border-[1px] rounded-lg bg-white dark:bg-boxBgDark"
           >
             <input
               placeholder="Envie sua pergunta"
@@ -109,6 +98,6 @@ export const Chat = () => {
           </form>
         </div>
       </div>
-    </main>
+    </section>
   )
 }

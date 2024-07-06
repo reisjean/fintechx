@@ -1,13 +1,11 @@
-// import { CarouselHome } from "@/components/CarouselHome";
-import { Chat } from "@/components/Chat";
+import { Navigation } from "@/components/Navigation";
 
 export default function Home() {
   return (
-    <section className="flex justify-end bg-slate-200 h-screen">
-      <div className="w-[100%] sm:w-[400px] h-full">
-        {/* <CarouselHome /> */}
-        <Chat />
+    <main className="flex justify-end h-dvh bg-light dark:bg-dark sm:bg-gray-200 sm:dark:bg-gray-700">
+      <div className="w-[100%] sm:w-[400px]">
+        <Navigation />
       </div>
-    </section>
+    </main>
   );
 }
