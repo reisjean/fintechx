@@ -1,9 +1,9 @@
 'use client'
 
+import { CarouselHome } from "@/components/CarouselHome";
+import { Chat } from "@/components/Chat";
 import { useNavigationStore } from "@/store/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { CarouselHome } from "../CarouselHome";
-import { Chat } from "../Chat";
 
 export function Navigation() {
   const { current } = useNavigationStore();

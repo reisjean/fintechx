@@ -10,7 +10,7 @@ export const ChatMessage = ({ type, text }: ChatMessageProps) => {
   const isAssistant = type === 'assistant'
 
   return (
-    <div className={`${isAssistant ? '' : 'bg-boxBgDark'} flex items-start p-8 gap-3`}>
+    <div className={`${isAssistant ? '' : 'bg-boxBgDark'} flex items-start p-8 gap-3`} data-testid="chat-message-item">
       <Avatar>
         {isAssistant
           ? <>

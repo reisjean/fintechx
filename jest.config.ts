@@ -13,6 +13,7 @@ const config: Config = {
     "!src/lib/**/*.ts(x)?",
     "!src/app/layout.tsx",
   ],
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   moduleDirectories: ["node_modules", "src"],
   clearMocks: true,
   collectCoverage: true,
@@ -20,7 +21,6 @@ const config: Config = {
   coverageReporters: ["lcov", "html"],
   coverageProvider: "v8",
   testEnvironment: "jsdom",
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
 }
 
 export default createJestConfig(config)
