@@ -37,7 +37,7 @@ describe("Home Page", () => {
 
     cy.contains("button", "Quem fundou").click()
 
-    cy.get("p").contains("Gandalf e Frodo").should("be.visible")
+    cy.get("p").contains("Gandalf e Dumbledore").should("be.visible")
   })
 
   it("you should interact with the chat by typing a question and getting an answer", () => {
