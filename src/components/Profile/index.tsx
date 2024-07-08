@@ -2,6 +2,7 @@
 
 import { poppins } from "@/app/fonts";
 import Image from "next/image";
+import { ScrollArea } from "../ui/scroll-area";
 import { FooterProfile } from "./FooterProfile";
 import { HeaderProfile } from "./HeaderProfile";
 import { Menu } from "./Menu";
@@ -12,8 +13,8 @@ export function Profile() {
       <div className="w-full h-dvh bg-white dark:bg-dark grid grid-rows-[120px_minmax(0,1fr)_min-content]">
         <HeaderProfile />
 
-        <section>
-          <div className="flex items-center flex-col gap-4">
+        <section className="grid grid-rows-[min-content_minmax(0,1fr)]">
+          <div className="flex items-center flex-col gap-4 mb-4">
             <Image
               width={106}
               height={106}
@@ -30,7 +31,9 @@ export function Profile() {
             </div>
           </div>
 
-          <Menu />
+          <ScrollArea>
+            <Menu />
+          </ScrollArea>
         </section>
 
         <FooterProfile />

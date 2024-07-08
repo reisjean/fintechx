@@ -7,7 +7,7 @@ import { TbLogout, TbSettings } from "react-icons/tb";
 
 export function Menu() {
   return (
-    <menu className="px-10 my-10">
+    <menu className="px-10 mb-8">
       <ul className="flex gap-6 mt-6 flex-col items-start">
         <li className="w-full">
           <Link

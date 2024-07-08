@@ -40,4 +40,11 @@ describe("Home Page", () => {
     cy.get("p").contains("Gandalf").should("be.visible")
     cy.get("p").contains("Dumbledore").should("be.visible")
   })
+
+  it("should navigate to the Profile", () => {
+    cy.contains("button", "Skip").click()
+    cy.get('[aria-label="profile"]').click()
+
+    cy.get("h1").contains("Frodo Bolseiro").should("be.visible")
+  })
 })
