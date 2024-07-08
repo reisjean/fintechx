@@ -2,10 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import { useNavigationStore } from "@/store/navigation";
-import { BsThreeDots } from "react-icons/bs";
 import { FaChevronLeft } from "react-icons/fa";
 
-export const Header = () => {
+export function HeaderProfile() {
   const { update } = useNavigationStore();
 
   return (
@@ -13,19 +12,12 @@ export const Header = () => {
       <Button
         variant="ghost"
         className="bg-grey-4 dark:bg-boxBgDark text-grey-6 rounded-xl h-12"
-        onClick={() => update("carousel")}
+        onClick={() => update("chat")}
       >
         <FaChevronLeft />
       </Button>
-      <h3 className="text-lg text-dark dark:text-white">Assuntos Gerais</h3>
-
-      <Button
-        variant="ghost"
-        className="bg-none rounded-xl h-12 text-grey-1 dark:text-grey-3"
-        onClick={() => update("profile")}
-      >
-        <BsThreeDots className="h-8 w-5" />
-      </Button>
+      <h3 className="text-lg text-dark dark:text-white">Profile</h3>
+      <span></span>
     </header>
   )
 }
