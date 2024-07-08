@@ -58,13 +58,3 @@ Para executar testes e2e
 ```bash
   npm run test:e2e
 ```
-
-
-## Deploy
-
-Para implantar este projeto, execute
-
-```bash
-  npm run deploy
-```
-
