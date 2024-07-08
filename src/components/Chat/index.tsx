@@ -1,38 +1,22 @@
 'use client'
 
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { type PreMessages, usePreMessages } from "@/hooks/usePreMessages";
 import { useChat } from 'ai/react';
 import { useLayoutEffect, useRef, useState } from "react";
-import { IoSend } from "react-icons/io5";
-import { Button } from "../ui/button";
+import { ChatForm } from "./ChatForm";
 import { ChatMessage, ChatMessageTypes } from "./ChatMessage";
 import { Header } from "./Header";
 import { InteractiveButton } from "./InteractiveButton";
 
-const preMessages = [
-  {
-    id: '019084f7-65c6-7237-9d8e-f2304a16f08e',
-    text: 'Quais são os horários de atendimento da FinTechX?'
-  },
-  {
-    id: '019084f7-83c4-7965-818c-0f22a87d663d',
-    text: 'Onde estão localizados os escritórios da FinTechX?'
-  },
-  {
-    id: '019084f7-a376-72f6-92ac-fd13fa83ecc6',
-    text: 'Quem fundou a FinTechX e quando?'
-  },
-  {
-    id: '019084f7-d682-7f04-8ced-63c025d8529d',
-    text: 'Como a FinTechX protege as minhas informações pessoais?',
-  }
-]
-
 export const Chat = () => {
+  const { preMessages, isLoading } = usePreMessages()
   const { messages, input, handleInputChange, handleSubmit, setInput } = useChat();
   const [isChatting, setIsChatting] = useState(false)
   const formRef = useRef<HTMLFormElement>(null)
   const lastMessageRef = useRef<HTMLDivElement>(null)
+
+  const randomMessages: PreMessages = !isLoading ? preMessages || [] : []
 
   const handlePreMessageButtonClick = (message: string) => {
     setIsChatting(true)
@@ -81,7 +65,7 @@ export const Chat = () => {
 
             <ScrollArea className="w-100">
               <div className="flex flex-col gap-4 box-border px-8">
-                {preMessages.map((button) => (
+                {randomMessages.map((button) => (
                   <InteractiveButton
                     key={button.id}
                     text={button.text}
@@ -94,28 +78,13 @@ export const Chat = () => {
         )}
 
         <div className="px-8 py-6 pt-2 w-full">
-          <form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            className="mt-2 grid grid-flow-col grid-cols-[1fr_min-content] items-center border-neutrals-1 dark:border-neutral-600 border-[1px] rounded-lg bg-white dark:bg-boxBgDark"
-          >
-            <input
-              placeholder="Envie sua pergunta"
-              className="bg-transparent border-none focus:outline-none pl-4 text-md w-full text-grey-3 dark:text-grey-2"
-              value={input}
-              onChange={handleInputChange}
-            />
-            <Button
-              variant="ghost"
-              type="submit"
-              className="bg-none text-white rounded-xl h-12 w-14 hover:bg-transparent"
-              size="icon"
-              aria-label="Enviar mensagem"
-              onClick={() => { setIsChatting(true) }}
-            >
-              <IoSend className="text-slate-300 h-6 w-8" />
-            </Button>
-          </form>
+          <ChatForm
+            input={input}
+            handleInputChange={handleInputChange}
+            handleSubmit={handleSubmit}
+            setIsChatting={setIsChatting}
+            formRef={formRef}
+          />
         </div>
       </div>
     </section>
