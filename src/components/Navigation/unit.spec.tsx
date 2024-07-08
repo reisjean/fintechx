@@ -41,4 +41,17 @@ describe("Navigation", () => {
     expect(screen.getByText('FinTechX')).toBeInTheDocument()
   })
 
+  it('should render CarouselHome when current is "profile"', () => {
+    current = renderNavigationStore()
+    const { update } = current
+
+    act(() => {
+      update('profile')
+    })
+
+    render(<Navigation />)
+
+    expect(screen.getByText('Frodo Bolseiro')).toBeInTheDocument()
+  })
+
 })
