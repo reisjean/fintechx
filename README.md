@@ -2,9 +2,19 @@
 # FinTechX
 
 ChatBot da empresa fictícia FinTechX
+
+## Interação
+- Na tela inicial temos um carrossel funcional com a *apresentação* do chatbot.
+- Tocando no botão "Skip" acessamos o chatbot.
+- É possível tocar em um dos botões com mensagens (aleatórias) pré-definidas para enviar ao chatbot
+- É possível enviar mensagens através do input "envie sua mensagem"
+- Tocando no botão de "..." é possível acessar a página de **Perfil do usuário**
+
 ## Tech Stack
 
-**Client:** Nextjs with React, TailwindCSS, Shadcn/ui, zustand and swr
+**Client:** Nextjs/React, TailwindCSS, Shadcn/ui, Framer Motion, Zustand e SWR
+
+**Tests:** Jest + Testing Library e Cypress
 
 ## Rodando Localmente
 
@@ -32,7 +42,7 @@ Criar variáveis de ambiente
   cp .env.example .env.local
 ```
 
-Preencher variável de ambiente "OPENAI_API_KEY" com a chave de API do OpenAI
+Preencher variável de ambiente "OPENAI_API_KEY" com uma chave de API do OpenAI válida
 
 ```bash
   OPENAI_API_KEY=SUA_CHAVE_AQUI
@@ -43,7 +53,6 @@ Inicie o servidor
 ```bash
   npm run start
 ```
-
 
 ## Rondando testes
 
