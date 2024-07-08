@@ -12,7 +12,7 @@ const config: Config = {
     "!src/components/ui/**/*.ts(x)?",
     "!src/lib/**/*.ts(x)?",
     "!src/app/layout.tsx",
-    "!src/app/api/chat/route.ts",
+    "!src/app/api/**/*.ts(x)?",
   ],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   moduleDirectories: ["node_modules", "src"],

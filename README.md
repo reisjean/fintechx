@@ -1,13 +1,10 @@
 
 # FinTechX
 
-ChatBot desenvolvido em um teste técnico para a empresa [Laborit](https://laborit.com.br/)
+ChatBot da empresa fictícia FinTechX
 ## Tech Stack
 
-**Client:** Nextjs with React, TailwindCSS, Shadcn/ui and zustand
-
-**Server:** Nextjs + Prisma
-
+**Client:** Nextjs with React, TailwindCSS, Shadcn/ui, zustand and swr
 
 ## Rodando Localmente
 
@@ -29,10 +26,16 @@ Instalar dependências
   npm install
 ```
 
-Criar Tabelas
+Criar variáveis de ambiente
 
 ```bash
-  npx prisma generate
+  cp .env.example .env.local
+```
+
+Preencher variável de ambiente "OPENAI_API_KEY" com a chave de API do OpenAI
+
+```bash
+  OPENAI_API_KEY=SUA_CHAVE_AQUI
 ```
 
 Inicie o servidor

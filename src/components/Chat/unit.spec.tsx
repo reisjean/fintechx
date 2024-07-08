@@ -1,13 +1,32 @@
 import { act, render, screen } from '@testing-library/react';
 import { Chat } from '.';
 
+const preMessages = [
+  {
+    id: '1',
+    text: 'Quais são os horários de atendimento da FinTechX?'
+  },
+  {
+    id: '2',
+    text: 'Como faço para abrir uma conta na FinTechX?'
+  }
+]
+
+jest.mock('../../hooks/usePreMessages', () => {
+  return {
+    usePreMessages: () => ({
+      preMessages,
+      isLoading: false
+    })
+  }
+})
+
 describe('Chat unit tests', () => {
   it('should render', () => {
     render(<Chat />);
 
     expect(screen.getByRole('heading', { name: 'FinTechX' })).toBeInTheDocument();
-
-    expect(screen.getAllByRole('paragraph')).toHaveLength(4);
+    expect(screen.getAllByRole('paragraph')).toHaveLength(preMessages.length);
   });
 
   it('should change chat state when pre-message button is clicked', async () => {

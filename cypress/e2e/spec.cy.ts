@@ -32,21 +32,12 @@ describe("Home Page", () => {
     cy.get("input").should("be.visible")
   })
 
-  it("should interact with the chat by sending a standard message", () => {
-    cy.contains("button", "Skip").click()
-
-    cy.contains("button", "Quem fundou").click()
-
-    cy.get("p").contains("Gandalf e Dumbledore").should("be.visible")
-  })
-
   it("you should interact with the chat by typing a question and getting an answer", () => {
     cy.contains("button", "Skip").click()
 
-    cy.get("input")
-      .type("Vocês estão de acordo com alguma lei em específica?")
-      .type("{enter}")
+    cy.get("input").type("Quem fundou a FintechX?").type("{enter}")
 
-    cy.get("p").contains("LGPD").should("be.visible")
+    cy.get("p").contains("Gandalf").should("be.visible")
+    cy.get("p").contains("Dumbledore").should("be.visible")
   })
 })
