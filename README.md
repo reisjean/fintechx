@@ -6,9 +6,9 @@ ChatBot da empresa fictícia FinTechX
 ## Interação
 - Na tela inicial temos um carrossel funcional com a *apresentação* do chatbot.
 - Tocando no botão "Skip" acessamos o chatbot.
-- É possível tocar em um dos botões com mensagens (aleatórias) pré-definidas para enviar ao chatbot
+- É possível tocar em um dos botões com mensagens pré-definidas (aleatórias) para enviar ao chatbot
 - É possível enviar mensagens através do input "envie sua mensagem"
-- Tocando no botão de [...] no topo, é possível acessar a página de **Perfil do usuário**
+- Tocando no botão de [...] no topo, é possível acessar a página de **Perfil do usuário** (não funcional, apenas layout)
 
 ## Tech Stack
 
