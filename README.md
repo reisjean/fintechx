@@ -8,7 +8,7 @@ ChatBot da empresa fictícia FinTechX
 - Tocando no botão "Skip" acessamos o chatbot.
 - É possível tocar em um dos botões com mensagens (aleatórias) pré-definidas para enviar ao chatbot
 - É possível enviar mensagens através do input "envie sua mensagem"
-- Tocando no botão de "..." é possível acessar a página de **Perfil do usuário**
+- Tocando no botão de [...] no topo, é possível acessar a página de **Perfil do usuário**
 
 ## Tech Stack
 
