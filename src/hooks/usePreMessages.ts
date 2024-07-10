@@ -11,7 +11,11 @@ export type PreMessages = {
 export const usePreMessages = () => {
   const { data, error, isLoading } = useSWR<PreMessages, AxiosError>(
     "/api/messages",
-    fetcher
+    fetcher,
+    {
+      revalidateOnFocus: true,
+      refreshInterval: 1000,
+    }
   )
 
   return {
